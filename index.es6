@@ -1,7 +1,11 @@
 import React, { PropTypes } from 'react';
 import { codify } from './utils';
 
-function StatsList({ className = 'stats', stats }) {
+function StatsList({ className = 'stats', stats = [] }) {
+  if (stats.length === 0) {
+    return '';
+  }
+
   return (
     <dl
       className={`${className}__list`}
