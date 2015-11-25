@@ -1,31 +1,44 @@
 import React, { PropTypes } from 'react';
-import CountryHeader from './header';
-import StatsContent from './content';
+import { codify } from './utils';
 
-function Country({ className = 'country', itemType = 'Country', title, stats = [], children }) {
-  let headerEl = null;
-  if (title) {
-    headerEl = <CountryHeader title={title} />;
-  }
+function StatsList({ className = 'stats', stats }) {
   return (
-    <section className={className} itemScope itemType={`http://schema.org/${itemType}`}>
-      {headerEl}
-      <StatsContent stats={stats} />
-      <div className={`${className}__content`}>
-        {children}
-      </div>
-    </section>
+    <dl
+      className={`${className}__list`}
+      itemProp="additionalProperty" itemScope itemType="http://schema.org/PropertyValue"
+    >
+      {
+        stats.map(({ key, value }) => {
+          const code = codify(key);
+          return [
+            <dt
+              className={[ `${className}__stat-term`, `${className}__stat-${code}-term` ].join(' ')}
+            >
+              {key}
+            </dt>,
+            <dd
+              className={[ `${className}__stat-description`, `${className}__stat-${code}-value` ].join(' ')}
+              itemProp={key}
+            >
+              {value}
+            </dd>,
+          ];
+        })
+      }
+    </dl>
   );
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  Country.propTypes = {
+  StatsList.propTypes = {
     className: PropTypes.string,
-    itemType: PropTypes.string,
-    ...(CountryHeader.propTypes || {}),
-    ...(StatsContent.propTypes || {}),
-    children: PropTypes.node,
+    stats: PropTypes.arrayOf(
+      PropTypes.shape({
+        key: PropTypes.string.isRequired,
+        value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired,
+      })
+    ).isRequired,
   };
 }
 
-export default Country;
+export default StatsList;

@@ -7,7 +7,7 @@
   --stat-font-size: 14px;
 }
 
-.stats__content {
+.stats__list {
   margin-top: calc(var(--stat-vertical-gap, 2px) - var(--stat-font-size, 14px));
 }
 .stats__stat-term, .stats__stat-description {

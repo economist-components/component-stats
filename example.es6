@@ -1,5 +1,6 @@
 import React from 'react';
-import Country from '.';
+import Country from './country';
+import StatsList from '.';
 
 const countryStats = [
   {
@@ -24,13 +25,18 @@ const countryStats = [
   },
 ];
 export default (
-  <Country
-    title="United Kingdom"
-    stats={countryStats}
-  >
-    <p>Blah blah blah.</p>
-    <p>Blah blah blah.</p>
-    <p>Blah blah blah.</p>
-    <p>Blah blah blah.</p>
-  </Country>
+  <div>
+    <h1>Country Example</h1>
+    <Country
+      title="United Kingdom"
+      stats={countryStats}
+    >
+      <p>Blah blah blah.</p>
+      <p>Blah blah blah.</p>
+      <p>Blah blah blah.</p>
+      <p>Blah blah blah.</p>
+    </Country>
+    <h1>Stats Example</h1>
+    <StatsList stats={countryStats} />
+  </div>
 );

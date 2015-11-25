@@ -1,13 +1,8 @@
-@import './stats-group';
+@import './country';
+@import './stats-list';
 
 :root {
   --stat-vertical-gap: 2px;
-
-  --stat-header-padding: 5px;
-  --stat-header-text-transform: uppercase;
-  --stat-header-background-color: #cfcfcf;
-  --stat-header-text-color: white;
-  --stat-header-font-size: 18px;
 
   --stat-padding-ys: 2px;
   --stat-padding-xs: 10px;
@@ -20,17 +15,7 @@
   --stat-description-text-align: right;
 }
 
-.country__header {
-  background-color: var(--stat-header-background-color);
-  color: var(--stat-header-text-color);
-  text-transform: var(--stat-header-text-transform, none);
-}
-.country__header-text {
-  font-size: var(--stat-header-font-size);
-  padding: var(--stat-header-padding, 0px);
-}
-
-.country__header, .stats__stat-term, .stats__stat-description {
+.stats__stat-term, .stats__stat-description {
   margin-bottom: var(--stat-vertical-gap);
 }
 .stats__stat-term, .stats__stat-description {

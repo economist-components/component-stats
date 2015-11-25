@@ -3,4 +3,5 @@
 
 #### TODO
 
-- [ ] Do not do more within here than is expected in a stats-list.
+- [ ] Style based on the styling provided by Alex.
+- [ ] Move the `stats-list` and the `country` container into different repositories.

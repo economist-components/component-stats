@@ -1,0 +1,18 @@
+:root {
+  --country-header-padding: 5px;
+  --country-header-text-transform: uppercase;
+  --country-header-background-color: #cfcfcf;
+  --country-header-text-color: white;
+  --country-header-font-size: 18px;
+}
+
+.country__header {
+
+  background-color: var(--country-header-background-color);
+  color: var(--country-header-text-color);
+  text-transform: var(--country-header-text-transform, none);
+}
+.country__header-text {
+  font-size: var(--country-header-font-size);
+  padding: var(--country-header-padding, 0px);
+}
