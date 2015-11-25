@@ -6,11 +6,11 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebinsua/component-stats.git"
+    "url": "git+https://github.com/economist-components/component-stats.git"
   },
-  "homepage": "https://github.com/sebinsua/component-stats#readme",
+  "homepage": "https://github.com/economist-components/component-stats#readme",
   "bugs": {
-    "url": "https://github.com/sebinsua/component-stats/issues"
+    "url": "https://github.com/economist-components/component-stats/issues"
   },
   "main": "index.js",
   "files": [
