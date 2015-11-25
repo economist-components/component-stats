@@ -20,17 +20,17 @@
   --stat-description-text-align: right;
 }
 
-.stats__header {
+.country__header {
   background-color: var(--stat-header-background-color);
   color: var(--stat-header-text-color);
   text-transform: var(--stat-header-text-transform, none);
 }
-.stats__header-text {
+.country__header-text {
   font-size: var(--stat-header-font-size);
   padding: var(--stat-header-padding, 0px);
 }
 
-.stats__header, .stats__stat-term, .stats__stat-description {
+.country__header, .stats__stat-term, .stats__stat-description {
   margin-bottom: var(--stat-vertical-gap);
 }
 .stats__stat-term, .stats__stat-description {
