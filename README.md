@@ -25,4 +25,6 @@
 #### TODO
 
 - [ ] Style based on the styling provided by Alex.
-- [ ] Move the `stats-list` and the `country` container into different repositories.
+- [ ] Move the `stats-list` and the `country` container into different repositories:
+  - `component-stats`
+  - `component-win-country`
