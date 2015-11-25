@@ -4,6 +4,7 @@ import Stats from '.';
 export default (
   <Stats
     title="United Kingdom"
+    itemType="Country"
     stats={[
       {
         key: 'GDP growth',

@@ -1,13 +1,8 @@
 /* eslint react/no-multi-comp: 0 */
 import React, { PropTypes } from 'react';
 
-function codify(name) {
-  return name.replace(/[^a-z0-9]/g, function(s) {
-    const c = s.charCodeAt(0);
-    if (c == 32) return '-';
-    if (c >= 65 && c <= 90) return '_' + s.toLowerCase();
-    return '__' + ('000' + c.toString(16)).slice(-4);
-  }).toLowerCase();
+function codify(name = '') {
+  return name.toLowerCase().replace(/[^a-z0-9]/g, (chars) => (chars.charCodeAt(0) === 32 ? '-' : ''));
 }
 
 function StatsHeader({ className, title, icon }) {
@@ -17,7 +12,7 @@ function StatsHeader({ className, title, icon }) {
   }
   return (
     <header className={`${className}__header`}>
-      <h1 className={`${className}__header-text`}>{title}</h1>
+      <h1 className={`${className}__header-text`} itemProp="name">{title}</h1>
       {iconEl}
     </header>
   );
@@ -33,13 +28,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 function StatsContent({ className, stats }) {
   return (
-    <dl className={`${className}__content`}>
+    <dl className={`${className}__content`} itemProp="additionalProperty" itemScope itemType="http://schema.org/PropertyValue">
       {
         stats.map(({ key, value }) => {
           const code = codify(key);
           return [
             <dt className={[ `${className}__stat-term`, `${className}__stat-${code}-term` ].join(' ')}>{key}</dt>,
-            <dd className={[ `${className}__stat-description`, `${className}__stat-${code}-value` ].join(' ')}>{value}</dd>,
+            <dd className={[ `${className}__stat-description`, `${className}__stat-${code}-value` ].join(' ')} itemProp={key}>{value}</dd>,
           ]
         })
       }
@@ -59,13 +54,13 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-function Stats({ className = 'stats', title, stats = [] }) {
+function Stats({ itemType = 'Thing', className = 'stats', title, stats = [] }) {
   let headerEl = null;
   if (title) {
     headerEl = <StatsHeader className={className} title={title} />;
   }
   return (
-    <aside className={className}>
+    <aside className={className} itemScope itemType={`http://schema.org/${itemType}`}>
       {headerEl}
       <StatsContent className={className} stats={stats} />
     </aside>
@@ -74,6 +69,7 @@ function Stats({ className = 'stats', title, stats = [] }) {
 
 if (process.env.NODE_ENV !== 'production') {
   Stats.propTypes = {
+    itemType: PropTypes.string,
     ...(StatsHeader.propTypes || {}),
     ...(StatsContent.propTypes || {}),
   };

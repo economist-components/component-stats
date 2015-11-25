@@ -1,69 +1,44 @@
+@import './stats-group';
+
 :root {
-  --stat-header-margin-bottom: 2px;
+  --stat-vertical-gap: 2px;
+
   --stat-header-padding: 5px;
   --stat-header-text-transform: uppercase;
   --stat-header-background-color: #cfcfcf;
   --stat-header-text-color: white;
+  --stat-header-font-size: 18px;
 
-  --stat-margin-bottom: 2px;
   --stat-padding-ys: 2px;
   --stat-padding-xs: 10px;
   --stat-background-color: #efefef;
   --stat-text-color: black;
   --stat-font-size: 14px;
-  --stat-term-max-width: 200px;
+
+  --stat-term-max-width: auto;
   --stat-term-text-align: left;
   --stat-description-text-align: right;
 }
 
 .stats__header {
-  margin-bottom: var(--stat-header-margin-bottom);
   background-color: var(--stat-header-background-color);
   color: var(--stat-header-text-color);
   text-transform: var(--stat-header-text-transform, none);
 }
 .stats__header-text {
-  font-size: 18px;
+  font-size: var(--stat-header-font-size);
   padding: var(--stat-header-padding, 0px);
 }
-.stats__header-icon {
 
+.stats__header, .stats__stat-term, .stats__stat-description {
+  margin-bottom: var(--stat-vertical-gap);
 }
-
-.stats__content {
-  margin-top: calc(var(--stat-header-margin-bottom, 0px) - var(--stat-font-size, 0px));
-}
-
 .stats__stat-term, .stats__stat-description {
   background-color: var(--stat-background-color);
   color: var(--stat-text-color);
-  font-size: var(--stat-font-size);
-  height: var(--stat-font-size);
-  line-height: var(--stat-font-size);
-  margin-bottom: var(--stat-margin-bottom);
   padding: var(--stat-padding-ys, 0px) var(--stat-padding-xs, 0px);
+  font-size: var(--stat-font-size, 14px);
 }
 .stats__stat-term:after {
   content: ':';
-}
-
-.stats__stat-term {
-  float: left;
-  overflow: hidden;
-  clear: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: var(--stat-term-max-width);
-  text-align: var(--stat-term-text-align);
-}
-.stats__stat-description {
-  margin-left: var(--stat-term-max-width);
-  text-align: var(--stat-description-text-align);
-}
-.stats__stat-description:before, .stats__stat-description:after {
-  display: table;
-  content: " ";
-}
-.stats__stat-description:after {
-  clear: both;
 }
