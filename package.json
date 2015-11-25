@@ -1,5 +1,5 @@
 {
-  "name": "component-stats",
+  "name": "@economist/component-stats",
   "version": "1.0.0",
   "description": "Display and group stats",
   "author": "The Economist (http://economist.com)",
