@@ -1,5 +1,5 @@
 # component-stats
-> Display and group stats
+> Display stats
 
 #### TODO
 
