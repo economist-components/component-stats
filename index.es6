@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { codify } from './utils';
+import codify from 'slugger';
 
 function StatsList({ className = 'stats', stats = [] }) {
   return (
@@ -9,7 +9,7 @@ function StatsList({ className = 'stats', stats = [] }) {
     >
       {
         (stats || []).map(({ key, value }) => {
-          const code = codify(key);
+          const code = codify(key, { decode: false });
           return [
             <dt
               key={`${code}-term`}

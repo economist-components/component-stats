@@ -125,7 +125,9 @@
     "test": "karma start",
     "watch": "parallelshell 'npm run doc:watch' 'npm run prepublish:watch' 'npm run serve'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "slugger": "^1.0.1"
+  },
   "devDependencies": {
     "@economist/component-devpack": "^3.5.0",
     "babel": "^5.8.23",
