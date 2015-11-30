@@ -1,2 +1,6 @@
 # component-stats
-A component for displaying and grouping a list of stats
+> Display stats
+
+#### TODO
+
+- [ ] Style based on the styling provided by Alex.
